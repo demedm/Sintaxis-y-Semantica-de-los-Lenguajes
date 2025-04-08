@@ -3,22 +3,13 @@
 *   Denise A Medina Mosquera 
 *   31032025
 */
+
 #include <stdio.h>
+//  Usando comando ./a.exe > output.txt 
+//  redirijo la salida a archivo output.txt
 
 int main()
 {
-    char str[16] = "Buenos dias! :D";
-    FILE *f;
-    if(f=fopen("output.txt","wt"))
-    {
-        fprintf(f,"%s",str);
-        fclose(f);
-    }
-    else 
-    {
-        printf("No se pudo abrir el archivo D:\n");
-        fclose(f);
-        return 1;
-    }
+    printf("Buenos dias! :D");
     return 0;
 }
