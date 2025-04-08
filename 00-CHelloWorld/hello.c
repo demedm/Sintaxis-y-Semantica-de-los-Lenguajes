@@ -5,8 +5,6 @@
 */
 
 #include <stdio.h>
-//  Usando comando ./a.exe > output.txt 
-//  redirijo la salida a archivo output.txt
 
 int main()
 {
