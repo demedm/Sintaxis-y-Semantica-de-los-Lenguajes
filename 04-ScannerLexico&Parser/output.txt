@@ -1,0 +1,101 @@
+KEYWORD, int, 0
+ID, a, 1
+[]
+;
+KEYWORD, char, 2
+ID, b, 3
+()
+;
+KEYWORD, int, 4
+*
+ID, vaca23, 5
+()
+[]
+;
+KEYWORD, int, 6
+*
+ID, vaca23, 7
+()
+[]
+;
+KEYWORD, char, 8
+ID, vaca, 9
+[128]
+;
+KEYWORD, int, 10
+(
+*
+ID, vaca, 11
+;
+KEYWORD, char, 12
+ID, vaca, 13
+(
+;
+KEYWORD, char, 14
+(
+*
+ID, vaca, 15
+)
+()
+;
+KEYWORD, char, 16
+ID, mmmm, 17
+;
+KEYWORD, int, 18
+(
+*
+ID, va, 19
+)
+[]
+;
+;
+;
+ERROR LEXICO, Secuencia invalida : 123abc
+;
+KEYWORD, int, 20
+ID, p, 21
+KEYWORD, char, 22
+ID, a, 23
+;
+KEYWORD, int, 24
+ERROR LEXICO, Secuencia invalida : hola@
+;
+KEYWORD, int, 25
+ERROR LEXICO, Secuencia invalida : @m
+()
+;
+KEYWORD, int, 26
+ERROR LEXICO, Secuencia invalida : @abc
+[]
+;
+KEYWORD, char, 27
+ID, _abc, 28
+;
+KEYWORD, int, 29
+(
+*
+ID, pf, 30
+)
+()
+;
+KEYWORD, int, 31
+(
+*
+ID, wf, 32
+()
+;
+KEYWORD, int, 33
+ID, o, 34
+)
+;
+KEYWORD, int, 35
+ERROR LEXICO, Secuencia invalida : hola@a@p0@
+()
+;
+KEYWORD, char, 36
+ID, o, 37
+()
+;
+KEYWORD, int, 38
+ID, e, 39
+EOF

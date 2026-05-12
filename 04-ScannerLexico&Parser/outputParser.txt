@@ -1,0 +1,22 @@
+a : arreglo de int
+b : funcion que regresa char
+vaca23 : funcion que regresa arreglo de apuntador a int
+vaca23 : funcion que regresa arreglo de apuntador a int
+vaca : arreglo de 128 char
+ERROR SINTACTICO : $$$ No se cerro correctamente un parentesis $$$
+ERROR SINTACTICO : $$$ No se cerro correctamente un parentesis $$$
+vaca : apuntador a funcion que regresa char
+mmmm : char
+va : apuntador a arreglo de int
+ERROR SINTACTICO : $$$$ NO SE ENCONTRO UN ;  $$$
+a : char
+ERROR LEXICO : $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+ERROR LEXICO : $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+ERROR LEXICO : $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+_abc : char
+pf : apuntador a funcion que regresa int
+ERROR SINTACTICO : $$$ No se cerro correctamente un parentesis $$$
+ERROR SINTACTICO : $$$ No se abrio correctamente un parentesis $$$
+ERROR LEXICO : $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+o : funcion que regresa char
+ERROR SINTACTICO : $$$$ NO SE ENCONTRO UN ;  $$$

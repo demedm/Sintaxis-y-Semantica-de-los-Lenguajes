@@ -1,0 +1,51 @@
+digraph G {
+    // Configuración General
+    rankdir = LR;
+    nodesep = 0.5;
+    ranksep = 0.8;
+
+    // Estilo de Nodos por defecto
+    node [shape=circle, style=filled, fillcolor="#1e1e1e", color="#22B455", fontcolor="#22B455", fontname="Helvetica", penwidth=2];
+
+    "Out -+" [shape=doublecircle, style=filled, fillcolor="#000000", color="#ffffff", fontcolor="#ffffff", penwidth=3];
+
+    // Nodos de Tokens
+    node [shape=doublecircle, color="#22B455", fontcolor="#ffffff"];
+    "ID" "Lit_Num" "LPAR" "PARS" "RPAR" "ASTERISK" "BRACKETS" "Punct";
+
+    "Error_Lex" [shape=circle, color="#ff4444", fontcolor="#ff4444", penwidth=3];
+
+    "Out -+" -> "Out -+"[label="esp", color="#22B455", fontcolor="#22B455"];
+
+    "Out -+" -> "ID"[label="char", color="#22B455", fontcolor="#22B455"];
+    "ID" -> "ID"[label="char,int", color="#22B455", fontcolor="#22B455"];
+    "ID" -> "Out -+"[label="esp,op,punct", color="#22B455", fontcolor="#22B455"];
+    "ID" -> "Error_Lex"[label="inval", color="#ff4444", fontcolor="#ff4444"];
+    
+    "Out -+" -> "Lit_Num"[label="int", color="#22B455", fontcolor="#22B455"];
+    "Lit_Num" -> "Lit_Num"[label="int", color="#22B455", fontcolor="#22B455"];
+    "Lit_Num" -> "Error_Lex"[label="char, inval", color="#ff4444", fontcolor="#ff4444"];
+    "Lit_Num" -> "Out -+"[label="esp,op,punct", color="#22B455", fontcolor="#22B455"];
+    
+    "Out -+" -> "LPAR"[label="(", color="#22B455", fontcolor="#22B455"];
+    "LPAR" -> "PARS"[label=")", color="#22B455", fontcolor="#22B455"];
+    "LPAR" -> "Out -+"[label="Σ − { ) }", color="#22B455", fontcolor="#22B455"];
+    "PARS" -> "Out -+"[label="ε", color="#22B455", fontcolor="#22B455"];
+
+    "Out -+" -> "Error_Lex"[label="inval", color="#ff4444", fontcolor="#ff4444"];
+    "Error_Lex" -> "Error_Lex"[label="inval, char, int", color="#ff4444", fontcolor="#ff4444"];
+    "Error_Lex" -> "Out -+"[label="esp, punct, op", color="#ff4444", fontcolor="#ff4444"];
+
+    "Out -+" -> "RPAR"[label=")", color="#22B455", fontcolor="#22B455"];
+    "RPAR" -> "Out -+"[label="ε", color="#22B455", fontcolor="#22B455"];
+    
+    "Out -+" -> "ASTERISK"[label="*", color="#22B455", fontcolor="#22B455"];
+    "ASTERISK" -> "Out -+"[label="ε", color="#22B455", fontcolor="#22B455"];
+    
+    "Out -+" -> "BRACKETS"[label="[", color="#22B455", fontcolor="#22B455"];
+    "BRACKETS" -> "BRACKETS"[label="int", color="#22B455", fontcolor="#22B455"];
+    "BRACKETS" -> "Out -+"[label="]", color="#22B455", fontcolor="#22B455"];
+    
+    "Out -+" -> "Punct"[label="punct", color="#22B455", fontcolor="#22B455"];
+    "Punct" -> "Out -+"[label="ε", color="#22B455", fontcolor="#22B455"]; 
+}

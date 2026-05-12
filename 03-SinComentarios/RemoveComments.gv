@@ -1,0 +1,42 @@
+/*
+Conjunto = ASCII
+B = {/}
+As = {*}
+S = {"}
+C = {'}
+O = ASCII - {B, As, S, C, N, E}
+N = {n}
+E = {\}
+Nl = {salto de línea}
+*/
+
+digraph G{
+    rankdir = LR;
+    "Out -" -> "PosibleComent"[label="B/ε"];
+    "Out -" -> "Out -"[label="As, O, N, Nl/accion_putchar"];
+    "PosibleComent" -> "Out -"[label= "O, E, N, Nl/accion_doble_putchar"];
+    "PosibleComent" -> "In_String"[label="S/accion_doble_putchar"];
+    "PosibleComent" -> "In_Char"[label="C/accion_doble_putchar"];
+    "PosibleComent" -> "In_Simple"[label="B/ε"];
+    "PosibleComent" -> "In_Mult"[label="As/ε"];
+    "Posible_ExitM" -> "In_Mult" [label="O, S, C, N, E, Nl/ε"];
+    "Posible_ExitM" -> "Out -"[label="B/accion_espacio"];
+    "Posible_ExitM" -> "Posible_ExitM"[label="As/ε"];
+    "In_Mult" -> "In_Mult"[label="O, S, C, B, N, E, Nl/ε"];
+    "In_Simple" -> "In_Simple"[label="O, S, C, B, N, E, As/ε"];
+    "In_Simple" -> "Out -"[label="Nl/accion_putchar"];
+    "In_Mult" -> "Posible_ExitM" [label="As/ε"];
+    "Out -" -> "In_String"[label="S/accion_putchar"];
+    "Out -" -> "In_Char" [label="C/accion_putchar"];
+    "In_String" -> "In_String"[label="O, C, B, As, Nl, N/accion_putchar"];
+    "In_String" -> "Escape_String"[label="E/accion_putchar"];
+    "In_String" -> "Out -"[label="S/accion_putchar"];
+    "In_Char" -> "Escape_Char"[label="E/accion_putchar"];
+    "In_Char" -> "Out -"[label="C/accion_putchar"];
+    "In_Char" -> "In_Char"[label="B, As, S, O, N, Nl/accion_putchar"];
+    "Escape_String" -> "In_String"[label="N, S, E, C, As, B, E, O/accion_putchar"];
+    "Escape_Char" -> "In_Char"[label="N, S, E, C, As, B, E, O/accion_putchar"];
+}
+
+
+
